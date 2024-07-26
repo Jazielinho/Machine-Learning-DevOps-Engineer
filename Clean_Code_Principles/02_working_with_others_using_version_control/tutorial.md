@@ -100,3 +100,71 @@ Though it wasn't introduced, the git checkout command allows you to move from on
 
 In this second video, you were able to see the `git checkout` command in action to move between branches. You were also introduced to the `git branch -d command`, which allows you to delete branches. Note this second command requires that you are not currently on the branch you would like to delete.
 
+
+## Scenario 2: Creating a Branch
+
+Let's walk through the Git commands that go along with each step in the scenario you just observed in the video.
+
+Step 1: Andrew commits his changes to the documentation branch, switches to the development branch, and pulls down the latest changes from the cloud on this development branch, including the change I merged previously for the friends group feature.
+Commit the changes on the documentation branch
+`git commit -m "standardized all docstrings in process.py"`
+
+Switch to the develop branch
+`git checkout develop`
+
+Pull the latest changes on the develop branch down
+`git pull`
+
+Step 2: Andrew merges his documentation branch into the develop branch on his local repository, and then pushes his changes up to update the develop branch on the remote repository.
+Merge the documentation branch into the develop branch
+`git merge --no-ff documentation`
+
+Push the changes up to the remote repository
+`git push origin develop`
+
+Step 3: After the team reviews your work and Andrew's work, they merge the updates from the development branch into the master branch. Then, they push the changes to the master branch on the remote repository. These changes are now in production.
+Merge the develop branch into the master branch
+`git merge --no-ff develop`
+
+Push the changes up to the remote repository
+`git push origin master`
+
+Resources
+Read this great article(opens in a new tab) on a successful Git branching strategy.
+
+Note on merge conflicts
+For the most part, Git makes merging changes between branches really simple. However, there are some cases where Git can become confused about how to combine two changes, and asks you for help. This is called a merge conflict.
+
+Mostly commonly, this happens when two branches modify the same file.
+
+For example, in this situation, let’s say you deleted a line that Andrew modified on his branch. Git wouldn’t know whether to delete the line or modify it. You need to tell Git which change to take, and some tools even allow you to edit the change manually. If it isn’t straightforward, you may have to consult with the developer of the other branch to handle a merge conflict.
+
+To learn more about merge conflicts and methods to handle them, see About merge conflicts(opens in a new tab).
+
+### Version Control Workflow
+In the two videos on this page, we will add to the flow already introduced with branching earlier. This means:
+
+* Pushing our branches to Github
+* Opening pull requests
+* Introducing code reviews
+
+In the previous video, you notice that pushing a branch to Github follows essentially the same steps as pushing code from main or master to Github. That is, you use the flow of:
+
+* `git add`
+* `git commit -m`
+* `git push`
+
+However, when pushing a branch, you will get an error that will let you know the exact command needed to push that branch. This is because, the basic `git push` command is intended to be used only when pushing from your main branch up to Github.
+
+One final step not addressed in the above video that is often done in practice is to do a `git pull` on your local to pull the newest version on the Github master branch into your local codebase. Notice this practice will work even if you were not the person to make the newest changes to the master branch.
+
+Otherwise, the above flow shows a great workflow to follow including:
+
+* Creating a new branch
+* Adding new features and code
+* `add`, `commit`, and `push` your changes to the remote
+* Open a pull request
+* Have another team member review your changes and merge them in
+* Delete the remote branch
+* Delete the local branch
+* Pull the new code on the remote master to your local machine
