@@ -1,0 +1,13 @@
+2024-08-13 12:05:15,392 Creating artifact
+Traceback (most recent call last):
+  File "C:\Users\jahaz\OneDrive\Escritorio\Test\Machine-Learning-DevOps-Engineer\03_Building_reproducible_model_workflow\02_machine_learning_pipelines\02_ml_pipeline_components_in_mlfow\solution\download_data.py", line 44, in go
+    artifact.add_file(fp.name, name=basename)
+  File "C:\Users\jahaz\.conda\envs\udacity_mlops\lib\site-packages\wandb\sdk\artifacts\artifact.py", line 1188, in add_file
+    digest = md5_file_b64(local_path)
+  File "C:\Users\jahaz\.conda\envs\udacity_mlops\lib\site-packages\wandb\sdk\lib\hashutil.py", line 44, in md5_file_b64
+    return _b64_from_hasher(_md5_file_hasher(*paths))
+  File "C:\Users\jahaz\.conda\envs\udacity_mlops\lib\site-packages\wandb\sdk\lib\hashutil.py", line 55, in _md5_file_hasher
+    with path.open("rb") as f:
+  File "C:\Users\jahaz\.conda\envs\udacity_mlops\lib\pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+PermissionError: [Errno 13] Permission denied: 'C:\\Users\\jahaz\\AppData\\Local\\Temp\\tmpufz1awlh'

@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/jahaz/OneDrive/Escritorio/Test/Machine-Learning-DevOps-Engineer/03_Building_reproducible_model_workflow/02_machine_learning_pipelines/03_linking_together_the_components/solution/mlruns/0/19e3767fc08b4e9fab0685a8b6454c97/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 19e3767fc08b4e9fab0685a8b6454c97
+run_name: bedecked-skunk-108
+run_uuid: 19e3767fc08b4e9fab0685a8b6454c97
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723625526507
+status: 1
+tags: []
+user_id: jahaz

@@ -1,0 +1,62 @@
+{
+    "os": "Windows-10-10.0.22631-SP0",
+    "python": "3.10.14",
+    "heartbeatAt": "2024-08-13T10:05:13.529881",
+    "startedAt": "2024-08-13T10:05:12.378281",
+    "docker": null,
+    "cuda": null,
+    "args": [
+        "--file_url",
+        "https://raw.githubusercontent.com/scikit-learn/scikit-learn/4dfdfb4e1bb3719628753a4ece995a1b2fa5312a/sklearn/datasets/data/iris.csv",
+        "--artifact_name",
+        "iris",
+        "--artifact_type",
+        "raw_data",
+        "--artifact_description",
+        "This data sets consists of 3 different types of irises\u2019 (Setosa, Versicolour, and Virginica) petal and sepal length"
+    ],
+    "state": "running",
+    "program": "C:\\Users\\jahaz\\OneDrive\\Escritorio\\Test\\Machine-Learning-DevOps-Engineer\\03_Building_reproducible_model_workflow\\02_machine_learning_pipelines\\02_ml_pipeline_components_in_mlfow\\solution\\download_data.py",
+    "codePathLocal": "download_data.py",
+    "codePath": "03_Building_reproducible_model_workflow\\02_machine_learning_pipelines\\02_ml_pipeline_components_in_mlfow\\solution\\download_data.py",
+    "git": {
+        "remote": "https://github.com/Jazielinho/Machine-Learning-DevOps-Engineer.git",
+        "commit": "a607a6ba94ea888a7464749a4e5ebfd52bc41c63"
+    },
+    "email": "jahaziel@senstile.com",
+    "root": "C:/Users/jahaz/OneDrive/Escritorio/Test/Machine-Learning-DevOps-Engineer",
+    "host": "DESKTOP-AOFFQ6S",
+    "username": "jahaz",
+    "executable": "C:\\Users\\jahaz\\.conda\\envs\\udacity_mlops\\python.exe",
+    "cpu_count": 8,
+    "cpu_count_logical": 16,
+    "cpu_freq": {
+        "current": 3201.0,
+        "min": 0.0,
+        "max": 3201.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 3201.0,
+            "min": 0.0,
+            "max": 3201.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 476.06151962280273,
+            "used": 441.8031539916992
+        }
+    },
+    "gpu": "NVIDIA GeForce RTX 3050 Laptop GPU",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce RTX 3050 Laptop GPU",
+            "memory_total": 4294967296
+        }
+    ],
+    "memory": {
+        "total": 13.692329406738281
+    }
+}

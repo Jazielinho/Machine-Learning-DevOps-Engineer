@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/jahaz/OneDrive/Escritorio/Test/Machine-Learning-DevOps-Engineer/03_Building_reproducible_model_workflow/02_machine_learning_pipelines/03_linking_together_the_components/solution/mlruns/0/d8d0954aa05a48f7a41528698035128b/artifacts
+end_time: 1723625886542
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: d8d0954aa05a48f7a41528698035128b
+run_name: nervous-dolphin-934
+run_uuid: d8d0954aa05a48f7a41528698035128b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723625881593
+status: 4
+tags: []
+user_id: jahaz

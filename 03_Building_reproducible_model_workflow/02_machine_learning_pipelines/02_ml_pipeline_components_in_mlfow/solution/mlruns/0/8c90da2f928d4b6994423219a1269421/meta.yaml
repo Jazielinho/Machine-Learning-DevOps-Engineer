@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/jahaz/OneDrive/Escritorio/Test/Machine-Learning-DevOps-Engineer/03_Building_reproducible_model_workflow/02_machine_learning_pipelines/02_ml_pipeline_components_in_mlfow/solution/mlruns/0/8c90da2f928d4b6994423219a1269421/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 8c90da2f928d4b6994423219a1269421
+run_name: overjoyed-calf-487
+run_uuid: 8c90da2f928d4b6994423219a1269421
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723543640303
+status: 1
+tags: []
+user_id: jahaz
