@@ -54,3 +54,13 @@ Run:
 ```bash
  mlflow run . -P input_artifact="exercise_4/genres_mod.parquet:latest" -P artifact_name="preprocessed_data.csv" -P artifact_type="clean_data" -P artifact_description="Data after preprocessing"
 ```
+
+# Data Segregation
+
+This step comes in our ML pipeline just after the data checks (which we will cover in another video). In its simplest form, it divides the dataset into a test set and a train/validation dataset. Often, especially when we have enough data, it makes sense to divide the test set into multiple subgroups, for example representing different sub-populations of our data. This is useful to study the performance of the model separately on those groups to make sure that it is fair, and that the performances are adequate not only on average, but also separately on each subset.
+
+![img.png](img.png)
+
+![img_1.png](img_1.png)
+
+
