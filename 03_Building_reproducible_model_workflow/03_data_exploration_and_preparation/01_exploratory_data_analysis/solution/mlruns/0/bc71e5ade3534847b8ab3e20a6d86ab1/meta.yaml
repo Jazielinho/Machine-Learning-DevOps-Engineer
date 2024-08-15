@@ -1,0 +1,15 @@
+artifact_uri: file:///mnt/c/Users/jahaz/OneDrive/Escritorio/Test/Machine-Learning-DevOps-Engineer/03_Building_reproducible_model_workflow/03_data_exploration_and_preparation/01_exploratory_data_analysis/solution/mlruns/0/bc71e5ade3534847b8ab3e20a6d86ab1/artifacts
+end_time: 1723709628922
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: bc71e5ade3534847b8ab3e20a6d86ab1
+run_name: burly-lynx-61
+run_uuid: bc71e5ade3534847b8ab3e20a6d86ab1
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723708715860
+status: 3
+tags: []
+user_id: root
