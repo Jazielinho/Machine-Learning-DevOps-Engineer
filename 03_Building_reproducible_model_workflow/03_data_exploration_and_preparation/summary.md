@@ -52,3 +52,16 @@ df = pd.read_parquet("genres_mod.parquet")
 profile = pandas_profiling.ProfileReport(df)
 profile.to_widgets()
 ```
+
+# Exercise: EDA
+
+# Clean and Pre-process the Data
+
+The pre-processing step is right at the beginning of the ML pipeline, just after data fetching. It implements the cleaning steps and other pre-processing that we have learned during the EDA.
+
+It is however important to note that if an operation is needed for the training and validation data as well as for the production data, it should not be part of the pre-processing step. It should instead go in the inference pipeline, as we shall see in another video.
+
+In other words, the pre-processing step should only apply transformations that are needed to make the training and test data look like what the model will encounter in production.
+
+
+

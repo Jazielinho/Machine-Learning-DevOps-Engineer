@@ -1,0 +1,137 @@
+{
+    "os": "Linux-5.15.153.1-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+    "python": "3.9.19",
+    "heartbeatAt": "2024-08-15T08:52:05.621309",
+    "startedAt": "2024-08-15T08:52:03.875854",
+    "docker": null,
+    "cuda": null,
+    "args": [
+        "--input_artifact",
+        "exercise_4/genres_mod.parquet:latest",
+        "--artifact_name",
+        "preprocessed_data.csv",
+        "--artifact_type",
+        "clean_data",
+        "--artifact_description",
+        "Data after preprocessing"
+    ],
+    "state": "running",
+    "program": "/mnt/c/Users/jahaz/OneDrive/Escritorio/Test/Machine-Learning-DevOps-Engineer/03_Building_reproducible_model_workflow/03_data_exploration_and_preparation/02_clean_preprocess_data/solution/run.py",
+    "codePathLocal": "run.py",
+    "codePath": "03_Building_reproducible_model_workflow/03_data_exploration_and_preparation/02_clean_preprocess_data/solution/run.py",
+    "git": {
+        "remote": "https://github.com/Jazielinho/Machine-Learning-DevOps-Engineer.git",
+        "commit": "e92bc80194ed084999b8f4b572e7b987d22b7f59"
+    },
+    "email": null,
+    "root": "/mnt/c/Users/jahaz/OneDrive/Escritorio/Test/Machine-Learning-DevOps-Engineer",
+    "host": "DESKTOP-AOFFQ6S",
+    "username": "root",
+    "executable": "/root/miniconda3/envs/mlflow-1c921ecd9d7543573c04d8546a7d082a0ed15f92/bin/python",
+    "cpu_count": 8,
+    "cpu_count_logical": 16,
+    "cpu_freq": {
+        "current": 3193.8890000000006,
+        "min": 0.0,
+        "max": 0.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 3193.889,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3193.889,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3193.889,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3193.889,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3193.889,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3193.889,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3193.889,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3193.889,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3193.889,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3193.889,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3193.889,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3193.889,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3193.889,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3193.889,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3193.889,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3193.889,
+            "min": 0.0,
+            "max": 0.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 1006.853931427002,
+            "used": 21.888931274414062
+        }
+    },
+    "gpu": "NVIDIA GeForce RTX 3050 Laptop GPU",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce RTX 3050 Laptop GPU",
+            "memory_total": 4294967296
+        }
+    ],
+    "memory": {
+        "total": 6.621429443359375
+    }
+}

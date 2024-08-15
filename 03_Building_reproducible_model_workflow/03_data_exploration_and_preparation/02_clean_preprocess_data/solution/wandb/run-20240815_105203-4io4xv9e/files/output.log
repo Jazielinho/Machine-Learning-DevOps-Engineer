@@ -1,0 +1,14 @@
+2024-08-15 10:52:06,844 Fetching artifact
+2024-08-15 10:52:07,981 Reading DataFrame
+2024-08-15 10:52:08,057 Dropping duplicates
+2024-08-15 10:52:08,083 Creating text feature
+/mnt/c/Users/jahaz/OneDrive/Escritorio/Test/Machine-Learning-DevOps-Engineer/03_Building_reproducible_model_workflow/03_data_exploration_and_preparation/02_clean_preprocess_data/solution/run.py:29: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
+The behavior will change in pandas 3.0. This inplace method will never work because the intermediate object on which we are setting values always behaves as a copy.
+For example, when doing 'df[col].method(value, inplace=True)', try using 'df.method({col: value}, inplace=True)' or df[col] = df[col].method(value) instead, to perform the operation inplace on the original object.
+  df['title'].fillna(value='', inplace=True)
+/mnt/c/Users/jahaz/OneDrive/Escritorio/Test/Machine-Learning-DevOps-Engineer/03_Building_reproducible_model_workflow/03_data_exploration_and_preparation/02_clean_preprocess_data/solution/run.py:30: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
+The behavior will change in pandas 3.0. This inplace method will never work because the intermediate object on which we are setting values always behaves as a copy.
+For example, when doing 'df[col].method(value, inplace=True)', try using 'df.method({col: value}, inplace=True)' or df[col] = df[col].method(value) instead, to perform the operation inplace on the original object.
+  df['song_name'].fillna(value='', inplace=True)
+2024-08-15 10:52:08,093 Creating artifact
+2024-08-15 10:52:08,704 Logging artifact
