@@ -1,0 +1,15 @@
+artifact_uri: file:///mnt/c/Users/jahaz/OneDrive/Escritorio/Test/Machine-Learning-DevOps-Engineer/03_Building_reproducible_model_workflow/05_training_validation_and_experiment_tracking/01_write_an_inference_pipeline/solution/mlruns/0/d4b455e932d648f59add98f970095acc/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: d4b455e932d648f59add98f970095acc
+run_name: colorful-shoat-986
+run_uuid: d4b455e932d648f59add98f970095acc
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723803490290
+status: 1
+tags: []
+user_id: root

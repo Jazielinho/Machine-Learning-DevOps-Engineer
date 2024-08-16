@@ -1,0 +1,15 @@
+artifact_uri: file:///mnt/c/Users/jahaz/OneDrive/Escritorio/Test/Machine-Learning-DevOps-Engineer/03_Building_reproducible_model_workflow/05_training_validation_and_experiment_tracking/01_write_an_inference_pipeline/solution/mlruns/0/1e2b27803b4b49498875015bc2350b94/artifacts
+end_time: 1723803655122
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 1e2b27803b4b49498875015bc2350b94
+run_name: placid-mouse-95
+run_uuid: 1e2b27803b4b49498875015bc2350b94
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723803653567
+status: 4
+tags: []
+user_id: root
