@@ -160,3 +160,57 @@ Length of the dataset
 Distinct values in a categorical variable
 Legal range for a numerical variable (for example, length > 0)
 ...and many more!
+
+# Non-Deterministic Tests
+
+A test is non-deterministic when it involves measuring a quantity with intrinsic uncertainty (a random variable). For this reason, it involves Statistical Hypothesis Testing.
+
+Most non-deterministic tests compare the present dataset with a previous one that is used as a reference.
+
+Some examples of non-deterministic tests are:
+
+* Check the mean and/or standard deviation of columns 
+* Check the level of correlations between columns, or a column and the target 
+* Check the distribution of values within one or more columns 
+* Check for outliers
+
+## Hypothesis testing
+
+We are going to consider Frequentist Hypothesis Testing. In this statistical framework we have a null hypothesis and an alternative hypothesis. In our case, the null hypothesis represents our assumption about the data, while the alternative represents a violation of that assumption. For example, the null hypothesis could be "the two samples come from populations with a Normal distribution and equal means", and the alternative hypothesis could be "the two samples come from populations with a Normal distribution but different means":
+
+In this case we consider the t-test. We consider the two samples, we compute the Test Statistic for the t-test, we compute the p-value and check if the p-value is larger or smaller than our pre-determined threshold. If it is larger, we do not reject the null hypothesis which means that our test passes. If it is smaller, we reject the null hypothesis. This does not necessarily mean that there is something wrong with our dataset (because depending on the threshold we used, the test has a probability of false positives that is not zero), but we should look at it closely:
+
+![img_2.png](img_2.png)
+
+NOTE: each statistical test comes with its own assumptions and hypothesis. If these assumptions are violated, the statistical test becomes unreliable. Always verify what are the assumptions of the statistical test you are planning to use, and check whether they are justified in your specific case
+
+We can apply a non-deterministic test using pytest and `scipy` like this:
+
+```python
+import scipy.stats
+
+
+def test_compatible_mean(sample1, sample2):
+    """
+    We check if the mean of the two samples is not
+    significantly different
+    """
+    ts, p_value = scipy.stats.ttest_ind(
+        sample1, sample2, equal_var=False, alternative="two-sided"
+    )
+
+    # Pre-determined threshold
+    alpha = 0.05
+
+    assert p_value >= alpha, "T-test rejected the null hyp. at the 2 sigma level"
+
+    return ts, p_value
+```
+
+The function from `scipy` returns the p-value of the test, in this case the t-test. We just need to assert that such p-value is larger than the pre-determined threshold, so that the tests fails if that's not the case.
+
+Once again, because we selected a threshold of 0.05, if we repeat the test on 100 different datasets we have an expectation of 5 false positives. As always, selecting the threshold is a balancing act between sensitivity of the test and number of false positives.
+
+You also need to take into account the multiple-hypothesis testing problem, especially if you are applying the test on multiple columns. See this blog post(opens in a new tab) https://towardsdatascience.com/precision-and-recall-trade-off-and-multiple-hypothesis-testing-family-wise-error-rate-vs-false-71a85057ca2b for details and for strategies to account for that.
+
+`scipy` contains many statistical tests(opens in a new tab) https://docs.scipy.org/doc/scipy/reference/stats.html#statistical-tests. If the one we need is not there, we can also look at statsmodels(opens in a new tab) https://www.statsmodels.org/stable/stats.html.
