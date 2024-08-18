@@ -116,3 +116,9 @@ def go(config: DictConfig):
 
 if __name__ == "__main__":
     go()
+
+    # - download
+    # - preprocess
+    # - check_data
+    # - segregate
+    # - random_forest

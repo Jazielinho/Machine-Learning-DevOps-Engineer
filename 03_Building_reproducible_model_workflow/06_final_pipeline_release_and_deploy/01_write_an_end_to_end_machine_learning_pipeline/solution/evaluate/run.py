@@ -8,6 +8,7 @@ import mlflow.sklearn
 import matplotlib.pyplot as plt
 from sklearn.metrics import roc_auc_score, plot_confusion_matrix
 
+
 logging.basicConfig(level=logging.INFO, format="%(asctime)-15s %(message)s")
 logger = logging.getLogger()
 
@@ -26,7 +27,7 @@ def go(args):
     y_test = X_test.pop("genre")
 
     logger.info("Downloading and reading the exported model")
-    model_export_path = run.use_artifact(args.model_export).download()
+    model_export_path = run.use_artifact(args.model_export + ":latest").download()
 
     pipe = mlflow.sklearn.load_model(model_export_path)
 

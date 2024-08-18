@@ -17,3 +17,12 @@ In this class we are going to use `git` to track our code. This is a cheatsheet 
 
 ![img.png](img.png)
 
+
+# Release for Reproducibility
+
+A release is a static copy of the code that reflects its state at a particular point in time. It has a version and a tag attached to it. The tag can be used to restore the repository (or a local copy of the code in the repository) to its state when the release is cut.
+
+Semantic Versioning is a common schema for versioning release: a release is made of 3 numbers, like 1.3.8. The first number is called the major version. We only increment the major version when we make changes that break backward compatibility (i.e., a code running with the previous version is likely to break with the new version). The second number is called minor. We increment it when we make a significant change that is backward-compatible, i.e., code running with the previous version is not expected to break with the new one. And finally, we have a patch number. We increment it for bug fixes and small changes that do not significantly change the code's behavior (excluding the bugs fixed).
+
+![img_1.png](img_1.png)
+
