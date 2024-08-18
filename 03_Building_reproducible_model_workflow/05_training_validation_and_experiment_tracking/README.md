@@ -448,3 +448,23 @@ with mlflow.run() as run:
 ```
 
 Note: The free version of MLflow, not attached to a Databricks instance, does not support user authentication and management out of the box, which makes it not very useful for teams (but good for personal use).
+
+# Lesson Conclusion
+
+Congrats for finishing this lesson! We have seen:
+
+* The inference pipeline and the inference artifact: what they are and why are they used 
+* How to perform an ordered experimentation phase, keeping track of and versioning data, code and hyper-parameters 
+* How to create an inference pipeline with sklearn and export it with MLflow and scikit-learn (and a quick example with pytorch)
+* How to evaluate the inference artifact against the test dataset
+
+# Glossary
+
+Experiment Tracking: The process of recording all the necessary pieces of information needed to inspect and reproduce a run. We need to track the code and its version, the dependencies and their versions, all the metrics of interests, all the produced artifacts (images, model exports, etc.), as well as the environment where the experiment runs.
+
+Hyperparameter Optimization: The process of varying one or more hyperparameter of a run in order to optimize a metric of interest (for example, Accuracy or Mean Absolute Error).
+
+Inference Artifact: An instance of the Inference Pipeline containing a trained model.
+
+Inference Pipeline: A pipeline constituted of two steps: the pre-processing step and the model. The pre-processing step can be a pipeline on its own, and it manipulates the data and prepares them for the model. The inference pipeline should contain all the pre-processing that needs to happen during model development as well as during production. When the inference pipeline is trained (i.e., it contains a trained model) it can be exported to disk. The export product is called an Inference Artifact.
+
