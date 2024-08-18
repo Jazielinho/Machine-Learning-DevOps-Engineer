@@ -1,0 +1,15 @@
+artifact_uri: file:///mnt/c/Users/jahaz/OneDrive/Escritorio/Test/Machine-Learning-DevOps-Engineer/03_Building_reproducible_model_workflow/05_training_validation_and_experiment_tracking/03_export_your_model_sub_pipeline/solution/mlruns/0/a8c5bfcb63b24603b9d3a696d2f917c2/artifacts
+end_time: 1723893156584
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: a8c5bfcb63b24603b9d3a696d2f917c2
+run_name: omniscient-wolf-773
+run_uuid: a8c5bfcb63b24603b9d3a696d2f917c2
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723893142549
+status: 4
+tags: []
+user_id: root

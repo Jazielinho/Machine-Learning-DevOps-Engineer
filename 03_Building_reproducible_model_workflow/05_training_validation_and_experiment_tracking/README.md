@@ -402,3 +402,49 @@ artifact = wandb.Artifact(...)
 artifact.add_dir(export_path)
 run.log_artifact(artifact)
 ```
+
+
+# Test Your Final Artifact and Mark for Production
+
+We evaluate the inference artifact against the test dataset after export, i.e., we load the exported inference artifact in a different component (the test component) and we evaluate its performances. We do this so we are testing exactly what will be used in production.
+
+Thus, within the component evaluating the inference artifact we can do:
+
+```python
+model_export_path = run.use_artifact(args.model_export).download()
+
+pipe = mlflow.sklearn.load_model(model_export_path)
+```
+
+to load the inference artifact. Note that the model export artifact (aka the inference artifact) contains several files, so we need the path to the directory containing the files. Therefore, we use `.download()` and not `file()` as we did so far.
+
+Once we have reloaded our pipeline, we can test it as usual, for example computing the ROC metric:
+
+```python
+pred_proba = pipe.predict_proba(X_test)
+score = roc_auc_score(y_test, pred_proba, average="macro", multi_class="ovo")
+run.summary["AUC"] = score
+```
+
+## Demo: Mark for Production
+
+For every experiment we are exporting the model and tracking that artifact in W&B. When we have selected the best-performing model among all the experiments we have performed we can therefore navigate to the inference artifact for that run and mark it as "production ready". In W&B, this can be accomplished for example by adding the tag `prod` for that artifact version. Only one version of the artifact can have a certain tag, so the one we marked for production is going to be the only one with that label. We can therefore refer to it, like in `model_export:prod`.
+
+# Using MLflow for Experiment Tracking
+
+MLflow provides MLflow tracking that accomplishes a similar function as the experiment tracking capability of W&B. It can track artifacts, code and experiments. The way artifacts are tracked though is pretty different than W&B, and more primitive. You can find a description on how to use this functionality here(opens in a new tab) https://www.mlflow.org/docs/latest/tracking.html. Tracking experiments is very similar to what W&B does:
+
+```python
+experiment_id = mlflow.create_experiment("experiment 1")
+with mlflow.run() as run:
+  # Log an hyper parameter
+  run.log_param("param1", 100)
+  # Log a metric
+  for i in range(10):
+    run.log_metric("foo", i)
+  # Log an artifact
+  path_to_my_artifact = "./my_artifact.csv"
+  run.log_artifacts(path_to_my_artifact)
+```
+
+Note: The free version of MLflow, not attached to a Databricks instance, does not support user authentication and management out of the box, which makes it not very useful for teams (but good for personal use).
