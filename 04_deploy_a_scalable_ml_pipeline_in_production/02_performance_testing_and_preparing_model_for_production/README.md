@@ -154,3 +154,36 @@ Aequitas is a powerful Python library designed to assess and mitigate bias and f
 7. Bias Mitigation: If bias is detected, consider employing bias mitigation strategies. These may involve adjusting the model's predictions or retraining the model with fairness constraints to mitigate bias and ensure fair outcomes.
 
 By following these steps and leveraging the capabilities of Aequitas, you can gain insights into your model's bias and fairness, ultimately leading to more transparent and equitable predictive analytics systems.
+
+# Model Cards
+
+Model cards are a succinct approach for documenting the creation, use, and shortcomings of a model. They should be written such that a non-expert can understand the model card's contents.
+
+There is no one way to write a model card! Suggested sections include:
+
+1. Model Details such as who made it, type of model, training/hyperparameter details, and links to any additional documentation like a paper reference. 
+2. Intended use for the model and the intended users. 
+3. Metrics of how the model performs. Include overall performance and also key slices. A figure or two can convey a lot. 
+4. Data including the training and validation data. How it was acquired and processed. 
+5. Bias inherent either in data or model. This could also be included in the metrics or data section. 
+6. Caveats, if there are any.
+
+## Example of a Model Card
+
+![img.png](img.png)
+
+## Further Reading
+The research paper(opens in a new tab) https://dl.acm.org/doi/10.1145/3287560.3287596 introducing the concept of Model Cards. (Also available as a preprint here(opens in a new tab) https://arxiv.org/pdf/1810.03993.pdf.)
+
+Google's general documentation(opens in a new tab) https://modelcards.withgoogle.com/about on model cards.
+
+# Conclusion
+
+In this lesson, we reviewed validation sets and K-Fold Cross-Validation. With that in mind, we went into data slicing, which is akin to looking to looking at vertical slices of the data that are focused instead of horizontal comprehensive slices. We also discussed how data always has the potential to be biased and looking at slices could help indicate this. Furthermore, there is a growing number of tools specifically designed for looking at bias, such as Aequitas. Lastly, we looked at model cards which provide a tidy way to provide documentation for a trained (and deployed) model.
+
+* Review Validation Sets and K-Fold Cross-Validation 
+* Data Slicing 
+* Data Slicing Use Cases and Testing 
+* Model Bias 
+* The Aequitas Package 
+* Model Cards
