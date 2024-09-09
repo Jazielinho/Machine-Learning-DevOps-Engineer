@@ -206,3 +206,165 @@ cron job: a one-line code snippet that schedules a particular task
 ## Additional Resources
 You can find a useful cron job editor here(opens in a new tab) https://crontab.guru/.
 You can read more about cron jobs here(opens in a new tab) https://www.hostinger.com/tutorials/cron-job.
+
+# Automated Model Re-training And Deployment
+
+Re-training and re-deployment are important parts of every ML project. Take a look at the image below, showing a map of a full ML project. It shows data ingestion in the top left - this is something we did in the first part of this lesson. Training and deployment are shown in the middle of the top row - they're the steps we want to talk about now.
+
+![img_4.png](img_4.png)
+
+a map of a full ML project, including the DevOps portion (ingestion, training, deployment, scoring, monitoring)
+
+We accomplish training just after ingestion. Training requires you to know the location of ingested training data, create an ML model, and fit the model using the training data.
+
+After training, you can accomplish deployment. Often, deployment is a simple process, that requires saving a trained model to a production environment.
+
+Remember: every part of the training and deployment process can be automated by using cron jobs.
+
+## Demo: Model Re-training And Deployment
+
+Start by importing relevant modules:
+
+```python
+import pickle
+import pandas as pd
+from sklearn.linear_model import LogisticRegression
+import os
+```
+
+You need to open the file that contains the name of the deployed model:
+
+```python
+with open('deployedmodelname.txt', 'r') as f:
+    deployedname = f.read()
+print(deployedname)
+```
+
+You also need to open the file that contains the location of the demo data:
+
+```python
+with open('demodatalocation.txt', 'r') as f:
+    datalocation = f.read()
+print(datalocation)
+```
+
+Next, read the training data, and separate it into X and y variables:
+
+```python
+trainingdata = pd.read_csv(os.getcwd() + datalocation)
+X = trainingdata.loc[:,['bed','bath']].values.reshape(-1, 2)
+y = trainingdata['highprice'].values.reshape(-1, 1).ravel()
+```
+
+Create a logistic regression model, and train it using our training data:
+
+```python
+logit = LogisticRegression(C=1.0, 
+                           class_weight=None, 
+                           dual=False, 
+                           fit_intercept=True, 
+                           intercept_scaling=1, 
+                           l1_ratio=None, 
+                           max_iter=100,
+                           multi_class='auto', 
+                           n_jobs=None, 
+                           penalty='l2',
+                           random_state=0, 
+                           solver='liblinear', 
+                           tol=0.0001, 
+                           verbose=0,
+                           warm_start=False)
+model = logit.fit(X, y)
+```
+
+Finally, save the pickle file to your workspace:
+
+```python
+pickle.dump(model, open('./production/' + deployedname, 'wb'))
+```
+
+## New Terms
+* pickle: the module used to read and write trained ML models
+* logistic regression: an ML method used for categorical (0-1) classifications
+* re-deployment: the process of overwriting a deployed ML model with a newer, improved version
+* dump(): the method in the pickle module used to save a trained ML model
+
+## Additional Resources
+You can read more about model retraining and re-deployment here(opens in a new tab) https://mlinproduction.com/model-retraining/#:~:text=Rather%20retraining%20simply%20refers%20to,t%20involve%20any%20code%20changes..
+
+
+# Data Comparisons and Big Data
+
+Sometimes, when you're ingesting data from multiple sources, you want to do comparisons between the datasets, to find out which rows are shared in common between both datasets, and which rows are unique.
+
+Sometimes, like in the image below, you can accomplish this comparison just by looking at the two datasets for a few seconds:
+
+![img_5.png](img_5.png)
+Two small datasets, that can be compared merely by looking for a few seconds to check which rows are common to both
+
+For bigger datasets, it won't be practical to visually inspect every row. Instead, we want a code solution.
+
+If you have two datasets, called df1 and df2, you can use this line of code to accomplish the comparison:
+
+```python
+df_all = df1.merge(df2.drop_duplicates(),
+                   on=['col1','col2'],
+                   how='outer', 
+                   indicator=True)
+```
+
+This will merge the two datasets together, and also create a new column called _merge, which will indicate whether each row is common to both datasets, or unique to only one.
+
+## Big Data
+
+There are some special ways to work with extremely large datasets. Instead of ingesting them to a single file or even a single machine, we can split them into multiple sections, and save each section to a different machine. A system that spreads single datasets across multiple machines is called a distributed file system.
+
+A typical distributed file system uses a model called a client/server model, illustrated in this image:
+
+![img_6.png](img_6.png)
+The client/server model: a client makes assignments to multiple servers, requiring them to store portions of datasets or run scripts
+
+After you split the data into several different parts and spread them across separate servers, you can use special techniques to perform calculations or operations. One of the most common methods for performing operations on distributed file systems is called MapReduce. MapReduce provides a framework for working with data on individual nodes and then combining the results. If you work with very large datasets, you should familiarize yourself with methods like these for working with distributed file systems.
+
+## New Terms
+* merge(): a method for combining two datasets - also including an option to record which entries are unique to particular datasets, and which are common across both
+* distributed file system: a collection of machines that allow data to be spread across multiple locations, to make work with extremely large datasets more feasible
+* client/server model: a hierarchical model allowing one machine to perform executive functions and control others, for more efficient data processing
+* MapReduce: a framework for performing operations on distributed datasets
+
+## Additional Resources
+* This page(opens in a new tab) https://guides.nyu.edu/quant/merge contains an overview of different ways to merge multiple datasets.
+* This tutorial(opens in a new tab) https://hci.stanford.edu/courses/cs448g/a2/files/map_reduce_tutorial.pdf contains an introduction to MapReduce.
+* This page(opens in a new tab) https://www.geeksforgeeks.org/what-is-dfsdistributed-file-system/ contains more information about distributed file systems.
+
+# Lesson Review
+
+This lesson was concerned with data ingestion and model training and deployment. In this lesson, we learned how to:
+
+* automatically ingest data, for use in the model, and for model training
+* keep records related to ML processes, including data ingestion
+* automate ML processes using cron jobs
+* retrain and re-deploy ML models 
+
+These skills are important for every ML project. It's crucial to be able to ingest new data that your model needs. It's just as crucial to retrain and re-deploy your model regularly to keep it up-to-date. Being able to keep records about processes and automate them will also be important throughout the rest of the course.
+
+![img_7.png](img_7.png)
+Lesson recap
+
+# Glossary
+For your reference, here are all the new terms we introduced in this lesson:
+
+* os: a module you can use to access workspace directories and files from a Python script
+* ingestion: the process of finding, gathering, recording, cleaning, and providing data as input to an ML project.
+* timestamp: a character string recording a particular date and time
+* datetime: a module containing capabilities for recording timestamps
+* crontab: the file on a Linux machine that contains cron jobs
+* cron job: a one-line code snippet that schedules a particular task
+* pickle: the module used to read and write trained ML models
+* logistic regression: an ML method used for categorical (0-1) classifications
+* re-deployment: the process of overwriting a deployed ML model with a newer, improved version
+* dump(): the method in the pickle module used to save a trained ML model
+* merge(): a method for combining two datasets - also including an option to record which entries are unique to particular datasets, and which are common across both
+* distributed file system: a collection of machines that allow data to be spread across multiple locations, to make work with extremely large datasets more feasible
+* client/server model: a hierarchical model allowing one machine to perform executive functions and control others, for more efficient data processing
+* MapReduce: a framework for performing operations on distributed datasets

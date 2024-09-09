@@ -5,9 +5,20 @@ import os
 
 ###################Reading Records#############
 
+with open('deployedmodelname.txt', 'r') as f:
+    deployedname = f.read()
+
+print(deployedname)
+
+with open('datalocation.txt', 'r') as f:
+    datalocation = f.read()
+
+print(datalocation)
 
 
 ##################Re-training a Model#############
+
+trainingdata = pd.read_csv(os.getcwd() + datalocation)
 
 
 X=trainingdata.loc[:,['col1','col2']].values.reshape(-1, 2)
@@ -20,15 +31,13 @@ logit=LogisticRegression(C=1.0, class_weight=None, dual=False, fit_intercept=Tru
                     warm_start=False)
                     
 
-
+model = logit.fit(X, y)
 
 
 ############Pushing to Production###################
 
 
-
-
-
+pickle.dump(model, open('./production/'+deployedname, 'wb'))
 
 
 
