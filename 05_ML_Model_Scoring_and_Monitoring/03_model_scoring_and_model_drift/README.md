@@ -270,3 +270,68 @@ You should be familiar with all of these terms:
 ## Additional Resources
 You can read more about model drift and the machine learning life cycle here(opens in a new tab) https://algorithmia.com/blog/model-drift-and-ensuring-a-healthy-machine-learning-lifecycle.
 You can read more about tests for model drift here(opens in a new tab) https://towardsdatascience.com/how-to-detect-model-drift-in-mlops-monitoring-7a039c22eaf9.
+
+# Above and Beyond: Hypothesis Testing in Model Drift Checking
+
+You may find a need to compare two different models that both have their own sets of historic model scores. In this case, you can use a statistical method called hypothesis testing.
+
+In order to accomplish hypothesis testing, you need to read both sets of previous scores into Python. Then you need to perform a "t-test" on the two sets of scores.
+
+The "t-test" will provide a value called a "p-value". If the size of the p-value is relatively small, we take that as evidence that the two sets of model scores are different. It's common to use 0.05 as a threshold: if the p-value is less than this threshold, then we consider that to be sufficient evidence that the model scores are different. When p<0.05, we say that the difference between the scores is "statistically significant."
+
+## New Terms
+You should be familiar with these terms:
+
+* p-value: a numerical result from a t-test used to determine whether two sets of numbers differ
+* t-test: a statistical test for comparing two sets of numbers
+* statistical significance: a concept describing the degree of evidence that two sets differ
+
+## Additional Resources
+* This video(opens in a new tab) https://www.khanacademy.org/math/statistics-probability/significance-tests-one-sample/more-significance-testing-videos/v/hypothesis-testing-and-p-values explains more about the details of hypothesis testing.
+* This page(opens in a new tab) https://machinelearningmastery.com/statistical-significance-tests-for-comparing-machine-learning-algorithms/ talks about using hypothesis testing for ML model comparisons.
+
+
+# Lesson Review
+
+In this lesson, we learned how to score models and check for model drift. We covered all of the following topics:
+
+* Automatic model scoring: how to read data and score models automatically
+* Recording model scores: how to keep persistent records of model scores in your workspace
+* Model drift: how to perform several different tests to check for model drift
+* Hypothesis testing: how to use statistical tests to compare two different models
+
+These skills are very important for all ML projects. By scoring models, you can ensure that they're up-to-date, and as accurate as possible.
+
+![img_7.png](img_7.png)
+Lesson recap
+
+# Glossary
+
+For your reference, here are all the new terms we introduced in this lesson:
+
+* F1 score: a common metric for measuring classification accuracy (higher scores are better).
+* reshape(): a method for changing the shape of data to prepare it for ML predictions.
+* r-squared: a metric used to measure model performance for regressions (between 0 and 1, the higher the better)
+* sum of squared errors (SSE): a metric used to measure model performance for regressions: (0 or higher, the lower the better)
+* raw comparison test: a test for model drift that consists of checking whether a new model score is worse than all previous scores
+* parametric significance test: a test model drift that consists of checking whether a new model score is more than 2 standard deviations worse than the mean of all previous scores
+* non-parametric outlier test: a test for model drift that consists of checking whether a new score is more than 1.5 interquartile ranges worse than the 25th or 75th percentile of previous scores
+* standard deviation: a measure of how far spread apart the observations in a dataset are
+* interquartile range: the difference between the 75th percentile and the 25th percentile of a set of observations
+* p-value: a numerical result from a t-test used to determine whether two sets of numbers differ
+* t-test: a statistical test for comparing two sets of numbers
+* statistical significance: a concept describing the degree of evidence that two sets differ
+
+For your reference, here are all the new terms we introduced in L4:
+
+* latency: Latency refers to the time delay in a program or the amount of time one part of your program has to wait for another part. If your processes take a long time to execute, it can cause latency in your project, and this could cause problems.
+* timestamp: a timestamp is a representation of a specific date and time in a standard format. Modules related to time and timing often record timestamps to keep track of when processes begin and end.
+* timeit: the name of the module that we've used as a timer in this lesson.
+* integrity: a dataset's state of being fully intact, with no missing or invalid entries
+* stability: the similarity of data values between consecutive versions of datasets
+* dependencies: 3rd-party modules that Python scripts import and depend on.
+* pip: the Python package installer. You can use this tool from the workspace to install modules and check information about installed modules.
+* data imputation: replacing missing entries with educated guesses about true values
+* mean imputation: using column means to replace missing data entries
+
+For your reference, here are all the new terms we introduced in L5:
